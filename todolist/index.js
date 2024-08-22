@@ -33,6 +33,7 @@ const task=document.getElementById("task");
     
   })
   
+    // delete elements 
     
 
 
