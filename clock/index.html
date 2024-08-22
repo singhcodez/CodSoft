@@ -23,9 +23,21 @@
 <canvas id="canvas" width="350" height="350" >
 Sorry, your browser does not support canvas.
 </canvas>
+ <label for="ChooseColor"> <b>Change Color: </b> </label>
+ <input value="#8B4513" type="color" name="ChooseColor" id="chooseColor">
 
+
+<!--javascript-->
 <script>
 const canvas = document.getElementById("canvas");
+
+const chooseColor = document.getElementById("chooseColor");
+let main=chooseColor.value
+chooseColor.addEventListener("input",()=>{
+  main=chooseColor.value
+  canvas.style.backgroundColor=main;
+})
+
 const ctx = canvas.getContext("2d");
 let radius = canvas.height / 2;
 ctx.translate(radius, radius);
@@ -44,9 +56,9 @@ function drawClock() {
 
 function drawFace(ctx, radius) {
   const grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
-  grad.addColorStop(0, 'saddlebrown');
+  grad.addColorStop(0, main);
   grad.addColorStop(0.5, 'white');
-  grad.addColorStop(1, 'saddlebrown');
+  grad.addColorStop(1, main);
   ctx.beginPath();
   ctx.arc(0, 0, radius, 0, 2*Math.PI);
   ctx.fillStyle = 'white';
@@ -56,7 +68,7 @@ function drawFace(ctx, radius) {
   ctx.stroke();
   ctx.beginPath();
   ctx.arc(0, 0, radius*0.09, 0, 2*Math.PI);
-  ctx.fillStyle = 'saddlebrown';
+  ctx.fillStyle = main;
   ctx.fill();
 }
 
