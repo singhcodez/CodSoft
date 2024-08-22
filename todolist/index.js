@@ -1,7 +1,7 @@
 let id=0;
 let tasks=[]
 const task=document.getElementById("task");
-
+//task adding in list & in task array
   document.getElementById("add").addEventListener("click",(e)=>{
     e.preventDefault();
     
@@ -17,9 +17,9 @@ const task=document.getElementById("task");
   let list = document.getElementById("list");
   let div=document.createElement("div")
   
-      tasks.map((obj,i)=>{ let item=` 
+      tasks.map((task,i)=>{ let item=` 
              <li class="item">
-              <p class="text"><b>${i+1} </b>${obj.text}</p> 
+              <p class="text"><b>${i+1} </b>${task.text}</p> 
               <div class="editSec">
                 <span class="edit">✍🏻</span>
                 <span class="delete">❌</span>
