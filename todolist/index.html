@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TodoList</title>
+  <style type="text/css" media="all">
+  
+
+     :root{
+        --main:#0A4CBA;
+        
+     }
+     #con{
+       
+       background-color:#CCDFFF;
+       box-sizing:border-box;
+       padding:10px;
+       border-radius:10px;
+       height:97vh;
+     }
+     h1{
+       text-align: center;
+       color:var(--main)
+     }
+     #addTask{
+       display:flex;
+       justify-content:space-around;
+     }
+     #addTask input{
+         width:62%;
+         height:30px;
+         margin-right:10px;
+         border:2px solid var(--main);
+         border-radius:8px;
+     }
+     #addTask button{
+       width:30%;
+       height:37px;
+       color:white;
+       font-weight: bold;
+       background-color: var(--main);
+       border-radius:8px;
+       border:2px solid white;
+       font-size:18px;
+     }
+     #add:hover{
+       box-shadow:0px 0px 4px 0px var(--main);
+     }
+     #list{
+       list-style: none;
+       background: var(--main);
+       padding: 5px;
+       margin:15px auto;
+       border-radius: 7px;
+       height:70vh;
+       border:2px solid white;
+       
+     }
+     .item{
+       display:flex;
+       justify-content: space-between;
+       color:black;
+       background-color:#CCDFFF;
+       padding:8px;
+       margin:10px 5px;
+       border-radius:10px;
+       min-height: 65px;
+       box-shadow:1px 1px 2px 1px ghostwhite;
+     }
+     .
+     .text{
+         flex-basis:84%;
+         word-wrap:break-word;
+         overflow:auto;
+     }
+    .editSec{
+      display:flex;
+      flex-direction: column-reverse;
+      justify-content: space-evenly;
+     flex-basis:30px;
+    }
+    
+    .editSec span {
+      display: inline-block;
+      font-size: 18px;
+      background-color: var(--main);
+      color: white;
+      padding: 4px;
+      height: 20px;
+      width:20px;
+      border-radius: 5px;
+    }
+    
+  </style>
+</head>
+
+<body>
+   <div id="con">
+       <h1>Todo list</h1>
+       <form id="addTask" action="">
+          <input type="text" name="" id="task"/>
+          <button id="add">Add</button>
+       </form>
+       <ol id="list" >
+          <li class="item">
+              <p class="text"><b>1. </b>hello my task is this yes</p> 
+              <div class="editSec">
+                
+                <span class="edit">✍🏻</span>
+                <span class="delete">❌</span>
+                
+              </div>
+              
+          </li>
+       </ol>
+   </div>
+
+
+<!--javascript-->
+<script src="./index.js"></script>
+</body>
+
+</html>
