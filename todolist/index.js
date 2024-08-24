@@ -69,13 +69,47 @@ document.getElementById("add").addEventListener("click", (e) => {
 
     addTasks(div);
 
+// edit box
 
+let edit=document.querySelectorAll(".edit")
 
+ const editorBox=(index)=>{
+    let editTask=document.getElementById("editTask")
+    let cancel=document.getElementById("cancel")
+    let change=document.getElementById("change")
+    
+  // close the editorbox  
+    cancel.addEventListener("click",()=>{
+      
+       document.getElementById('editor').style.display="none";
+  
+    })
+    
+  // edit task
+  //adding text in editbox
+    editTask.textContent=tasks[index].text;
+    
+    //change text
+    change.addEventListener("click",()=>{
+      tasks[index].text="editting";
+      document.getElementById('editor').style.display="none";
+      
+      console.log(tasks[index].text,editTask.textContent);
+    
+    })  
+    
+ }
 
-    // edit
-
-
-
+edit.forEach((editbtn,i)=>{
+     editbtn.addEventListener("click",()=>{
+        
+        document.getElementById("editor").style.display="block";
+        editorBox(i);
+     })
+     
+    
+     
+})
 })
 
 
@@ -91,13 +125,9 @@ const deleteTask = () => {
     let deletebtn = document.querySelectorAll(".delete");
 
 
-
-
     deletebtn.forEach((tapToDel, j) => {
 
         //console.log("outer",j)
-
-
 
         deletebtn[j].addEventListener("click", () => {
 
