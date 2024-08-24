@@ -61,8 +61,9 @@ document.getElementById("add").addEventListener("click", (e) => {
         })
 
         list.replaceChild(div, list.childNodes[0]);
-
-
+        
+        
+        editSection();
 
     }
 
@@ -70,7 +71,7 @@ document.getElementById("add").addEventListener("click", (e) => {
 
     addTasks(div);
    
-   editSection();
+   
 
 })
 
@@ -90,8 +91,6 @@ document.getElementById("add").addEventListener("click", (e) => {
         //console.log("outer",j)
 
         deletebtn[j].addEventListener("click", () => {
-
-            console.log(items.length, tasks.length, items.length == tasks.length, j)
 
 
 
@@ -135,7 +134,12 @@ let edit=document.querySelectorAll(".edit")
     let editTask=document.getElementById("editTask")
     let cancel=document.getElementById("cancel")
     let change=document.getElementById("change")
-    let flag=index;
+    
+  //adding text in editbox
+   console.log(1)
+    editTask.value=tasks[index].text;
+    console.log(2)
+    
   // close the editorbox  
   
     cancel.addEventListener("click",()=>{
@@ -147,9 +151,7 @@ let edit=document.querySelectorAll(".edit")
  
   // edit task 
   
-  //adding text in editbox
-    editTask.value=tasks[index].text;
-    
+
     //change text
     
     change.addEventListener("click",()=>{
