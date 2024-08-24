@@ -136,9 +136,9 @@ let edit=document.querySelectorAll(".edit")
     let change=document.getElementById("change")
     
   //adding text in editbox
-   console.log(1)
+   
     editTask.value=tasks[index].text;
-    console.log(2)
+    
     
   // close the editorbox  
   
