@@ -2,7 +2,8 @@
 let id = 0;
 
 let tasks = []
-
+let editSection;
+let deleteTask;
 const task = document.getElementById("task");
 
 //tasks adding in in task array
@@ -68,60 +69,19 @@ document.getElementById("add").addEventListener("click", (e) => {
     let div = document.createElement("div")
 
     addTasks(div);
+   
+   editSection();
 
-// edit box
-
-let edit=document.querySelectorAll(".edit")
-
- const editorBox=(index)=>{
-    let editTask=document.getElementById("editTask")
-    let cancel=document.getElementById("cancel")
-    let change=document.getElementById("change")
-    
-  // close the editorbox  
-    cancel.addEventListener("click",()=>{
-      
-       document.getElementById('editor').style.display="none";
-  
-    })
-    
-  // edit task
-  //adding text in editbox
-    editTask.textContent=tasks[index].text;
-    
-    //change text
-    change.addEventListener("click",()=>{
-      tasks[index].text="editting";
-      document.getElementById('editor').style.display="none";
-      
-      console.log(tasks[index].text,editTask.textContent);
-    
-    })  
-    
- }
-
-edit.forEach((editbtn,i)=>{
-     editbtn.addEventListener("click",()=>{
-        
-        document.getElementById("editor").style.display="block";
-        editorBox(i);
-     })
-     
-    
-     
 })
-})
-
 
 
 // delete elements 
 
 
 
-const deleteTask = () => {
+ deleteTask = () => {
 
-    let item = document.querySelectorAll(".item");
-
+    let items = document.querySelectorAll(".item");
     let deletebtn = document.querySelectorAll(".delete");
 
 
@@ -131,23 +91,23 @@ const deleteTask = () => {
 
         deletebtn[j].addEventListener("click", () => {
 
-            console.log(item.length, tasks.length, item.length == tasks.length, j)
+            console.log(items.length, tasks.length, items.length == tasks.length, j)
 
 
 
-            if (item.length == tasks.length && j < item.length) {
+            if (items.length == tasks.length && j < items.length) {
 
                 //    console.log("inner",j)
 
-                item[j].remove();
+                items[j].remove();
 
                 let deletedItem = tasks.splice(j, 1);
 
-                let div = document.createElement("div");
+             
 
                 deletebtn = document.querySelectorAll(".delete");
 
-
+                editSection();
 
             }
 
@@ -164,3 +124,58 @@ const deleteTask = () => {
 }
 
 document.body.addEventListener("click", deleteTask)
+
+
+// edit box
+ editSection=()=>{
+  
+let edit=document.querySelectorAll(".edit")
+
+ const editorBox=(index)=>{
+    let editTask=document.getElementById("editTask")
+    let cancel=document.getElementById("cancel")
+    let change=document.getElementById("change")
+    let flag=index;
+  // close the editorbox  
+  
+    cancel.addEventListener("click",()=>{
+      
+       document.getElementById('editor').style.display="none";
+     
+      
+    },{once:true})
+ 
+  // edit task 
+  
+  //adding text in editbox
+    editTask.value=tasks[index].text;
+    
+    //change text
+    
+    change.addEventListener("click",()=>{
+      
+      
+      let items = document.querySelectorAll(".item");
+      
+     tasks[index].text=editTask.value;
+    items[index].children[0].textContent=tasks[index].text;
+      document.getElementById('editor').style.display="none";
+      
+    },{once:true})  
+    
+    return 1;
+ }
+
+edit.forEach((editbtn,i)=>{
+    
+     editbtn.addEventListener("click",(e)=>{
+        document.getElementById("editor").style.display="block";
+        editorBox(i);
+        
+     })
+     
+    
+     
+}) 
+
+}
